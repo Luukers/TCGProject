@@ -8,11 +8,10 @@ class Card
 {
     public:
         string name;
-        string set;
-        string cardNumber;
         string setName;
-        string artist;
+        string cardNumber;
         string releaseDate;
+        string artist;
         double purchasePrice;
         vector <double> currentPrice;
         vector <string> dateCurrentPrice;
@@ -24,8 +23,8 @@ class Card
         bool extendetArt;
         string bonusInfo;
 
-        Card(string _name, string _set, string _cardNumber, string _setName, string _artist, string _releaseDate, double _purchasePrice):
-        name(_name), set(_set), cardNumber(_cardNumber), setName(_setName), artist(_artist), releaseDate(_releaseDate), purchasePrice(_purchasePrice){}
+        Card(string _name, string _setName, string _cardNumber, string _releaseDate, string _artist, double _purchasePrice , bool _graded, double _grade, bool _holo, bool _reverseHolo, bool _fullArt, bool _extendetArt, string _bonusInfo):
+        name(_name), setName(_setName), cardNumber(_cardNumber), releaseDate(_releaseDate), artist(_artist), purchasePrice(_purchasePrice), graded(_graded), grade(_grade), holo(_holo), reverseHolo(_reverseHolo), extendetArt(_extendetArt), bonusInfo(_bonusInfo){}
 
         ~Card(){}
 
@@ -34,3 +33,4 @@ class Card
 };
 
 void fillCardList(vector <Card*>& cardList);
+void emtpyCardList(vector <Card*>& cardList);

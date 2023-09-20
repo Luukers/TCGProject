@@ -3,6 +3,8 @@
 #include <windows.h>
 #include <string>
 #include <sstream>
+#include <fstream>
+
 using namespace std;
 
 
@@ -22,6 +24,7 @@ void Card::addCurrentPrice()
     currentPrice.push_back(price);
 }
 
+
 void Card::showPriceHistory()
 {
     for (size_t i = 0; i < currentPrice.size(); i++)
@@ -30,7 +33,54 @@ void Card::showPriceHistory()
     }
 }
 
-void fillCardList(vector <Card*>& cardList)
+
+void fillCardList(vector <Card*>& cardList, string filename)
 {
-    
+    ifstream info (filename);
+    if (!info.is_open())  
+    {                    
+        cout << "Error, " << filename << "could not be opened." << endl;
+    }
+    else 
+    {
+        string line;
+        stringstream lineStorage;
+        // assisting variables
+        string name;
+        string setName;
+        string cardNumber;
+        string artist;
+        string releaseDate;
+        double purchasePrice;
+        bool graded;
+        double grade;
+        bool holo;
+        bool reverseHolo;
+        bool fullArt;
+        bool extendetArt;
+        string bonusInfo;
+        // skip first line of csv
+        getline(info, line);
+        // get infos and fill vector with ptr to card
+        while (getline(info, line))
+        {
+            lineStorage << line;
+            getline(lineStorage, name, ',');
+            getline(lineStorage, setName, ',');
+            getline(lineStorage, cardNumber, ',');
+            getline(lineStorage, artist, ',');
+            getline(lineStorage, releaseDate, ',');
+            lineStorage >> purchasePrice; lineStorage.ignore();
+            lineStorage >> graded; lineStorage.ignore();
+            lineStorage >> grade; lineStorage.ignore();
+            lineStorage >> holo; lineStorage.ignore();
+            lineStorage >> fullArt; lineStorage.ignore();
+            lineStorage >> extendetArt; lineStorage.ignore();
+            getline(lineStorage, bonusInfo, ',');
+            // make objekt & push its ptr into cardList
+            Card* cardptr = new Card(name, setName, cardNumber, artist, releaseDate, purchasePrice, graded, grade, holo, reverseHolo, fullArt, extendetArt, bonusInfo);
+            cardList.push_back(cardptr);
+        } 
+    cout << filename << " opened." << endl;
+    }
 }

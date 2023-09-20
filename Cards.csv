@@ -1,0 +1,2 @@
+Name, setName, cardNumber, releaseDate, artist, purchasePrice, graded (bool), grade, holo (bool), reverseHolo (bool), fullArt (bool), extendetArt (bool), bonusInfo
+testname, testsetName, 1/10, 01.01.1999, testartist, 12.99, 1, 9.5, 1, 0, 1, 0, test bonus info,
