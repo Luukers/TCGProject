@@ -29,3 +29,8 @@ void Card::showPriceHistory()
         cout << "Date: " << dateCurrentPrice[i] << " Price: " << currentPrice[i] << endl;
     }
 }
+
+void fillCardList(vector <Card*>& cardList)
+{
+    
+}

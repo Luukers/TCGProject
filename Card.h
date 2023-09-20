@@ -30,7 +30,7 @@ class Card
         ~Card(){}
 
         void addCurrentPrice();
-        void showPriceHistory();
-
-        
+        void showPriceHistory();   
 };
+
+void fillCardList(vector <Card*>& cardList);
