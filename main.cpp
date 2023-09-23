@@ -1,6 +1,8 @@
 #include "Card.h"
+#include "functions.h"
 
-int main(){
+int main()
+{
     vector <Card*> cardllist;
     
 }

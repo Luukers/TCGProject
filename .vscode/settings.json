@@ -3,6 +3,8 @@
         "deque": "cpp",
         "string": "cpp",
         "vector": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "sstream": "cpp",
+        "iostream": "cpp"
     }
 }

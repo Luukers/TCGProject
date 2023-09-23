@@ -1,36 +1,58 @@
 #pragma once
 
+#include "functions.h"
 #include <iostream>
 #include <vector>
 using namespace std;
 
-class Card
+class Product
 {
     public:
-        string name;
-        string setName;
+    string name;
+    string setName;
+    string releaseDate;
+    double purchasePrice;
+    string bonusInfo;
+
+    vector <double> currentPrice;
+    vector <string> dateCurrentPrice;
+
+    virtual void addCurrentPrice(double price) = 0;
+    virtual void addCurrentPrice(double price, string date) = 0;
+    virtual void showPriceHistory() = 0;
+
+    Product(string _name, string _setName, string _releaseDate, double _purchasePrice, string _bonusInfo):
+    name(_name), setName(_setName), releaseDate(_releaseDate), purchasePrice(_purchasePrice), bonusInfo(_bonusInfo){}
+
+    ~Product(){}
+};
+
+
+
+class Card : public Product
+{
+    public:
+        
         string cardNumber;
-        string releaseDate;
         string artist;
-        double purchasePrice;
-        vector <double> currentPrice;
-        vector <string> dateCurrentPrice;
         bool graded;
         double grade;
         bool holo;
         bool reverseHolo;
         bool fullArt;
         bool extendetArt;
-        string bonusInfo;
+        
 
-        Card(string _name, string _setName, string _cardNumber, string _releaseDate, string _artist, double _purchasePrice , bool _graded, double _grade, bool _holo, bool _reverseHolo, bool _fullArt, bool _extendetArt, string _bonusInfo):
-        name(_name), setName(_setName), cardNumber(_cardNumber), releaseDate(_releaseDate), artist(_artist), purchasePrice(_purchasePrice), graded(_graded), grade(_grade), holo(_holo), reverseHolo(_reverseHolo), extendetArt(_extendetArt), bonusInfo(_bonusInfo){}
+        Card( string _name, string _setName, string _cardNumber, string _releaseDate, double _purchasePrice, string _artist, bool _graded, double _grade, bool _holo, bool _reverseHolo, bool _fullArt, bool _extendetArt, string _bonusInfo):
+        Product(_name, _setName, _releaseDate, _purchasePrice, _bonusInfo), cardNumber(_cardNumber), artist(_artist), graded(_graded), grade(_grade), holo(_holo), reverseHolo(_reverseHolo), extendetArt(_extendetArt) {}
 
         ~Card(){}
-
-        void addCurrentPrice();
-        void showPriceHistory();   
+        
+        void addCurrentPrice(double price) override;
+        void addCurrentPrice(double price, string date) override;
+        void showPriceHistory() override ;
+          
 };
 
 void fillCardList(vector <Card*>& cardList);
-void emtpyCardList(vector <Card*>& cardList);
+void emtpyCardList(vector <Card*>& cardList, string filename);
