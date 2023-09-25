@@ -54,6 +54,7 @@ void fillCardList(vector <Card*>& cardList, string filename)
         // assisting variables
         string name;
         string setName;
+        string language;
         string cardNumber;
         string artist;
         string releaseDate;
@@ -73,6 +74,7 @@ void fillCardList(vector <Card*>& cardList, string filename)
             lineStorage << line;
             getline(lineStorage, name, ',');
             getline(lineStorage, setName, ',');
+            getline(lineStorage, language, ',');
             getline(lineStorage, cardNumber, ',');
             getline(lineStorage, artist, ',');
             getline(lineStorage, releaseDate, ',');
@@ -85,7 +87,7 @@ void fillCardList(vector <Card*>& cardList, string filename)
             lineStorage >> extendetArt; lineStorage.ignore();
             getline(lineStorage, bonusInfo, ',');
             // make objekt & push its ptr into cardList
-            Card* cardptr = new Card(name, setName, cardNumber, releaseDate, purchasePrice, artist, graded, grade, holo, reverseHolo, fullArt, extendetArt, bonusInfo);
+            Card* cardptr = new Card(name, setName, cardNumber, language, releaseDate, purchasePrice, artist, graded, grade, holo, reverseHolo, fullArt, extendetArt, bonusInfo);
             cardList.push_back(cardptr);
         } 
     cout << filename << " opened." << endl;
