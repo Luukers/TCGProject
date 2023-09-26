@@ -1,8 +1,12 @@
 #include "Card.h"
 
+#include <memory>
+
 int main()
 {
-    // vector <Card*> cardllist;
+
+    
+
     
     
     

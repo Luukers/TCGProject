@@ -23,6 +23,8 @@ class Product
     virtual void addCurrentPrice(double price, string date) = 0;
     virtual void showPriceHistory()const = 0;
 
+    Product(){}
+
     Product(string _name,  string _setName, string _language, string _releaseDate, double _purchasePrice, string _bonusInfo):
     name(_name), setName(_setName), language(_language), releaseDate(_releaseDate), purchasePrice(_purchasePrice), bonusInfo(_bonusInfo){}
 
@@ -43,12 +45,14 @@ class Card : public Product
         bool reverseHolo;
         bool fullArt;
         bool extendetArt;
+
+        Card(){}
         
 
         Card( string _name, string _setName, string _language, string _cardNumber, string _releaseDate, double _purchasePrice, string _artist, bool _graded, double _grade, bool _holo, bool _reverseHolo, bool _fullArt, bool _extendetArt, string _bonusInfo):
         Product(_name, _setName, _language, _releaseDate, _purchasePrice, _bonusInfo), cardNumber(_cardNumber), artist(_artist), graded(_graded), grade(_grade), holo(_holo), reverseHolo(_reverseHolo), extendetArt(_extendetArt) {}
 
-        ~Card(){}
+        ~Card(){cout << "Carddestruktor" << endl;}
         
         // void addCurrentPrice(double price) override;
         void addCurrentPrice(double price, string date) override;
@@ -56,7 +60,7 @@ class Card : public Product
           
 };
 
-class sealedBooster: public Product
+/*class sealedBooster: public Product
 {
 
 };
@@ -64,7 +68,7 @@ class sealedBooster: public Product
 class sealedBoosterBox: public Product
 {
 
-};
+};*/
 
 void fillCardList(vector <Card*>& cardList, string filename);
 void emtpyCardList(vector <Card*>& cardList, string filename);
