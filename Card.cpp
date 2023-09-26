@@ -1,5 +1,4 @@
 #include "Card.h"
-#include "functions.h"
 // #include "windows.h"
 #include <string>
 #include <sstream>
@@ -31,7 +30,7 @@ void Card::addCurrentPrice(double price, string date)
 }
 
 // shows price history of a single card
-void Card::showPriceHistory()
+void Card::showPriceHistory()const
 {
     for (size_t i = 0; i < currentPrice.size(); i++)
     {

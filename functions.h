@@ -1,11 +1,10 @@
-#pragma once
+#ifndef FUNCTIONS_H
+#define FUNCTIONS_H
+
 #include "Card.h"
 #include <iostream>
 #include <sstream>
 #include <string>
-
-// forward declaration
-class Card;
 
 // functions
 
@@ -40,8 +39,4 @@ std::string to_string_with_precision(const double a_value, const int n = 2)
     return std::move(out).str();
 }
 
-// save info of products in subfolder and named csv files
-void saveProductInfo()
-{
-    
-}
+#endif

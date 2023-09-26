@@ -3,8 +3,8 @@
 
 int main()
 {
-    vector <Card*> cardllist;
-    vector <unique_ptr <Card>> cardlist2;
+    // vector <Card*> cardllist;
+    
     
     
 }

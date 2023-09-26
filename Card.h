@@ -1,9 +1,9 @@
-#pragma once
+#ifndef CARD_H
+#define CARD_H
 
 #include "functions.h"
 #include <iostream>
 #include <vector>
-#include <memory>
 using namespace std;
 
 class Product
@@ -21,12 +21,12 @@ class Product
 
     virtual void addCurrentPrice(double price) = 0;
     virtual void addCurrentPrice(double price, string date) = 0;
-    virtual void showPriceHistory() = 0;
+    virtual void showPriceHistory()const = 0;
 
     Product(string _name,  string _setName, string _language, string _releaseDate, double _purchasePrice, string _bonusInfo):
-    name(_name), language(_language), setName(_setName), releaseDate(_releaseDate), purchasePrice(_purchasePrice), bonusInfo(_bonusInfo){}
+    name(_name), setName(_setName), language(_language), releaseDate(_releaseDate), purchasePrice(_purchasePrice), bonusInfo(_bonusInfo){}
 
-    ~Product(){}
+    virtual ~Product(){}
 };
 
 
@@ -52,7 +52,7 @@ class Card : public Product
         
         void addCurrentPrice(double price) override;
         void addCurrentPrice(double price, string date) override;
-        void showPriceHistory() override ;
+        void showPriceHistory()const override ;
           
 };
 
@@ -66,5 +66,7 @@ class sealedBoosterBox: public Product
 
 };
 
-void fillCardList(vector <unique_ptr>& cardList);
+void fillCardList(vector <Card*>& cardList, string filename);
 void emtpyCardList(vector <Card*>& cardList, string filename);
+
+#endif
