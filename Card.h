@@ -19,7 +19,7 @@ class Product
     vector <double> currentPrice;
     vector <string> dateCurrentPrice;
 
-    virtual void addCurrentPrice(double price) = 0;
+    // virtual void addCurrentPrice(double price) = 0;
     virtual void addCurrentPrice(double price, string date) = 0;
     virtual void showPriceHistory()const = 0;
 
@@ -50,7 +50,7 @@ class Card : public Product
 
         ~Card(){}
         
-        void addCurrentPrice(double price) override;
+        // void addCurrentPrice(double price) override;
         void addCurrentPrice(double price, string date) override;
         void showPriceHistory()const override ;
           

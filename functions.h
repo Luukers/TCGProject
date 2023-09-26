@@ -1,7 +1,6 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
-#include "Card.h"
 #include <iostream>
 #include <sstream>
 #include <string>
