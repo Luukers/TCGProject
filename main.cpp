@@ -1,6 +1,6 @@
-#include "Card.h"
+#include "Card.h" 
 
-#include <memory>
+using namespace std;
 
 int main()
 {
@@ -8,6 +8,6 @@ int main()
     
 
     
-    
-    
+    cout << "Programm succesfully executed." << endl;
+    return 0; 
 }

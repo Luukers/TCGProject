@@ -1,13 +1,13 @@
 #include "Card.h"
-// #include "windows.h"
 #include <string>
 #include <sstream>
 #include <fstream>
+#include "Functions.h"
+// #include <windows.h>??
 
 using namespace std;
 
-
-// adds Current price by typing and current date automatically
+// Windows Only - adds Current price by typing and current date automatically 
 /* void Card::addCurrentPrice(double price)
 {   
     // current price:
@@ -38,7 +38,7 @@ void Card::showPriceHistory()const
     }
 }
 
-// reads Cards.csv and saves ptr to card in carlist vector
+// reads Cards.csv and saves ptr to card in cardlist vector
 void fillCardList(vector <Card*>& cardList, string filename)
 {
     ifstream file(filename);
