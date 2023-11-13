@@ -1,0 +1,4 @@
+CHECK!  subdirectory for prices for every product. example for file: productname_setname.csv
+CHECK!  prices get read at programm start and added to each produkts vec;
+        write runtime changes of price member vecs into fitting csvs
+        working menue with lotta options
