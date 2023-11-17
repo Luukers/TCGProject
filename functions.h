@@ -34,20 +34,32 @@ void deleteObjectsInVector(std::vector<T*>& vec)
 template <typename T>
 void printList(std::vector<T*>& vec)
 {
+    int i = 1;
     for (auto ptr : vec) {
         cout << endl;
         cout << "------------------------------" << endl;
+        cout << "    [" << i++ << "]" << endl;
         ptr->printInfos();
         cout << endl;
     }
 }
 
-// funktion for filling all price and date vecs from objects from fitting csv files
+// function for filling all price and date vecs from objects from fitting csv files
 template <typename T>
-void fetchCardPrices(const vector <T*>& vec)
+void fetchPrices(const vector <T*>& vec)
 {
     for(auto ptr: vec)
     {
         ptr->fetchPriceHistory();
+    }
+}
+
+// function for writing runtime changes rom proce history into fitting csv files
+template <typename T>
+void ofstreamPrices(const vector <T*>& vec)
+{
+    for(auto ptr: vec)
+    {
+        ptr->ofstreamPriceHistory();
     }
 }

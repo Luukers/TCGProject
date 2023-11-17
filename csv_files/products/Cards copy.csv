@@ -1,3 +1,3 @@
 string _name, string _setName, string _language, string _cardNumber, string _releaseDate, double _purchasePrice, string _artist, bool _graded, double _grade, bool _holo, bool _reverseHolo, bool _fullArt, bool _extendetArt, string _bonusInfo,
-Test,stestsetname, english, 077/185, 01.01.1999,11.99, testartist,0,0.000000,0,0,0,0, testinfo,
+Test,testsetname, english, 077/185, 01.01.1999,11.99, testartist,0,0.000000,0,0,0,0, testinfo,
 Pikachu,sm8b,12/77,Japanese,12.12.2009,23.99,tomokazu komija,0,0.000000,0,0,0,0,info1234,

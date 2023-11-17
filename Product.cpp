@@ -71,6 +71,21 @@ void Product::showPriceHistory() const
     }
     else
     cout << name << " from " << setName << " price history is empty" << endl;
+    cout << endl;
 }
 
+// function for writing runtime changes of price history in each Products csv file
+void Product::ofstreamPriceHistory()
+{
+    string filepath = "csv_files/prices/" + name + "_" + setName + ".csv";
+    ofstream file(filepath);
+        string content;
+        for (size_t i = 0; i < priceHistory.size(); i++)
+        {
+            content += dateForPricehistory[i] + ", " + to_string_with_precision(priceHistory[i]) + "," +"\n";
+        }
+        file << "Date, Price,\n";
+        file << content; 
+        cout << filepath << " Pricehistory was renewed" << endl;
+}
 

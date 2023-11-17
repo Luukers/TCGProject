@@ -24,6 +24,7 @@ class Product
     void addCurrentPrice(double price, string date);
     void showPriceHistory()const;
     virtual void printInfos() const = 0;
+    void ofstreamPriceHistory();
 
     Product(){}
     // overloaded constructor also executes data collecting for objects price history
