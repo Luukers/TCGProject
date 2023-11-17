@@ -20,22 +20,25 @@ void cardMenue(vector <Card*>& cardlist)
     string date;
     do
     {   
-        std::cin.clear();
-        cout << "   ------- Card Menue -------  " << endl;
+        cout << endl;
+        cout << "   -------  Card Menue  -------  " << endl;
         showCardMenueOptions();
         cout << "Please enter your Choice:" << endl;
         userInput  = check_if_int();
         switch (userInput)
         {
         case PrintCardList:
+            system("clear");
             printList(cardlist);
             break;
 
         case AddCard:
+            system("clear");
             addCard(cardlist);
             break;
 
         case ShowPriceHistoryOfCard:
+            system("clear");
             printList(cardlist);
             cout << "Type number of the Card you want to see Pricehistory from: " << endl;
             do{
@@ -46,6 +49,7 @@ void cardMenue(vector <Card*>& cardlist)
             break;
 
         case AddPriceToCard:
+            system("clear");
             printList(cardlist);
             cout << "Type number of the Card you want to add Price to: " << endl;
             do{
@@ -66,6 +70,7 @@ void cardMenue(vector <Card*>& cardlist)
             if(userInput != 0)
             {
             cout << "invalid Input." << endl;
+            cout << endl;
             }
             break;
         }
@@ -77,6 +82,6 @@ void showCardMenueOptions()
     cout << "[0] - Go back to Main Menue" << endl;
     cout << "[1] - Show whole Card collection" << endl;
     cout << "[2] - Add Card to Collection" << endl;
-    cout << "[3] - Show Pricehistory from single Card" << endl;
+    cout << "[3] - Show Pricehistory from a single Card" << endl;
     cout << "[4] - Add current Price to Card" << endl;
 }

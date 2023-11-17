@@ -1,0 +1,2 @@
+string _name,  string _setName, string _language, string _releaseDate, double _purchasePrice, int _quantity, string _bonusInfo, 
+testBooster, testBname, eng, 01.01.01, 12.99, 3, boosterinfotest, 

@@ -23,7 +23,8 @@ int check_if_bool();
 template <typename T>
 void deleteObjectsInVector(std::vector<T*>& vec) 
 {
-    for (auto ptr : vec) {
+    for (auto ptr : vec) 
+    {
         delete ptr;
     }
     vec.clear();
@@ -32,10 +33,11 @@ void deleteObjectsInVector(std::vector<T*>& vec)
 
 // funktion to call all printInfos() from vector independently from type of object
 template <typename T>
-void printList(std::vector<T*>& vec)
+void printList(const std::vector<T*>& vec)
 {
     int i = 1;
-    for (auto ptr : vec) {
+    for (auto ptr : vec) 
+    {
         cout << endl;
         cout << "------------------------------" << endl;
         cout << "    [" << i++ << "]" << endl;
@@ -46,7 +48,7 @@ void printList(std::vector<T*>& vec)
 
 // function for filling all price and date vecs from objects from fitting csv files
 template <typename T>
-void fetchPrices(const vector <T*>& vec)
+void ifstreamPices(const vector <T*>& vec)
 {
     for(auto ptr: vec)
     {

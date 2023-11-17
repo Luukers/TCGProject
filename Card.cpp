@@ -6,7 +6,7 @@
 using namespace std;
 
 //             ----------------------- Member -----------------------
-//member for printing infos
+// member for printing infos
 void Card::printInfos()const
 {   
     cout << "Name: " << name << endl;
@@ -25,12 +25,12 @@ void Card::printInfos()const
 
 //       ------------------ other Card associated functions ---------------------
 // reads Cards.csv and saves ptr to card in cardlist vector
-void fillCardList(vector <Card*>& cardList, string filename)
+void ifstreamCardlist(vector <Card*>& cardlist, string filepath)
 {
-    ifstream file(filename);
+    ifstream file(filepath);
     if (!file.is_open())  
     {                    
-        cerr << "Error, " << filename << " could not be opened." << endl;
+        cerr << "Error, " << filepath << " could not be opened." << endl;
     }
     else 
     {
@@ -73,25 +73,20 @@ void fillCardList(vector <Card*>& cardList, string filename)
             getline(lineStorage, bonusInfo, ',');
             // make objekt & push its ptr into cardList
             Card* cardptr = new Card(name, setName, language, cardNumber, releaseDate, purchasePrice, artist, graded, grade, holo, reverseHolo, fullArt, extendetArt, bonusInfo);
-            cardList.push_back(cardptr);
+            cardlist.push_back(cardptr);
         } 
-    cout << filename << " opened." << endl;
+    cout << filepath << " opened." << endl;
     }
 }
 
-// clears heap from cards and writes runtime changes to Cards.csv
-void emtpyCardList(vector <Card*>& cardList, string filename)
+// Writes runtime changes to Cards.csv
+void ofstreamCardlist(vector <Card*>& cardlist, string filepath)
 {
-    ofstream file(filename);
-    if (!file.is_open())  
-    {                    
-        cerr << "Error, " << filename << " could not be opened." << endl;
-        cout << "Created new File: " << filename << "." << endl;
-    }
+    ofstream file(filepath);
     // get header line of csv to save it
     string content;
     file << "string _name, string _setName, string _language, string _cardNumber, string _releaseDate, double _purchasePrice, string _artist, bool _graded, double _grade, bool _holo, bool _reverseHolo, bool _fullArt, bool _extendetArt, string _bonusInfo,\n";
-    for(Card* cardPtr : cardList)
+    for(Card* cardPtr : cardlist)
     {
         content = cardPtr->name + ','
         + cardPtr->setName + ','
@@ -101,7 +96,7 @@ void emtpyCardList(vector <Card*>& cardList, string filename)
         + to_string_with_precision(cardPtr->purchasePrice) + ','
         + cardPtr->artist + ','  
         + to_string(cardPtr->graded) + ','  
-        + to_string(cardPtr->grade) + ',' 
+        + to_string_with_precision(cardPtr->grade) + ',' 
         + to_string(cardPtr->holo) + ',' 
         + to_string(cardPtr->reverseHolo) + ',' 
         + to_string(cardPtr->fullArt) + ',' 
@@ -110,12 +105,12 @@ void emtpyCardList(vector <Card*>& cardList, string filename)
         file << content;  
     }
     file.close();
-    cout << filename << " was succesfully updated." << endl;
+    cout << filepath << " was succesfully updated." << endl;
     // heap get cleared from seperate function, be sure it gets called in main
 }
 
 // Adds Card to vec by manual user console input
-void addCard(vector <Card*>& cardList)
+void addCard(vector <Card*>& cardlist)
 {  
     
     cout << "Adding Card: " << endl;
@@ -133,7 +128,7 @@ void addCard(vector <Card*>& cardList)
     bool fullArt = 0;
     bool extendetArt = 0;
     string bonusInfo;
-    // fetch data via manual  input 
+    // fetch data via std::cin
     cout << "Name: ";
     getline(cin, name);
     cout << "Setname: ";
@@ -177,7 +172,7 @@ void addCard(vector <Card*>& cardList)
     getline(cin, bonusInfo);
     // create Card with info and add to vector
     Card* cardptr = new Card(name, setName, cardNumber, language, releaseDate, purchasePrice, artist, graded, grade, holo, reverseHolo, fullArt, extendetArt, bonusInfo);
-    cardList.push_back(cardptr);
+    cardlist.push_back(cardptr);
 }
 
 
