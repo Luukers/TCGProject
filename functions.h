@@ -88,13 +88,13 @@ void searchInList(vector <T*>& vec, string searchword)
         {   
         cout << endl;
         cout << "--------------------------------------------------------" << endl;
-        cout << "              [" << i+1 << "]" << endl;0
+        cout << "              [" << i+1 << "]" << endl;
         vec[i]->printInfos();
         cout << endl;
         }
         else
         {
-         // nothing happens if nothings found
+            // nothing happens if nothings found
         }
     }
 }

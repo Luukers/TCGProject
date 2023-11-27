@@ -18,9 +18,10 @@ void Card::printInfos()const
     cout << "    Cardnumber: " << cardNumber << endl;
     cout << "      Language: " << language << endl;
     cout << "  Release Date: " << releaseDate << endl;
-    cout << "Purchase Price: " << purchasePrice << endl;
+    cout << "Purchase Price: " << purchasePrice << "€" << endl;
     cout << "        Artist: " << artist << endl;
     cout << "    Bonus Info: " << bonusInfo << endl;
+    calculateProfit();
 }
 
 //       ------------------ other Card associated functions ---------------------

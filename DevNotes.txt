@@ -10,7 +10,8 @@ CHECK!  Workinng main Menue
 CHECK!  Working Card Menue
 CHECK!  Working sealed Booster Menue
 CHECK!  search Function in each submenue
-
+CHECK!  showing latest added price and date when listing up cards
+CHECK!  showing comparison to purchase price when listing up (value win or lose)
         
         
 

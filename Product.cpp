@@ -89,3 +89,13 @@ void Product::ofstreamPriceHistory()
         cout << filepath << " Pricehistory was renewed" << endl;
 }
 
+// calculate profit from product by purchaseprice difference to latest price
+void Product::calculateProfit() const
+{
+    if (!priceHistory.empty() && purchasePrice != 0 )
+    {
+    cout << "  Latest price: "<< priceHistory[priceHistory.size()-1] << "€" << endl;
+    double profit = priceHistory[priceHistory.size()-1] - purchasePrice;
+    cout << " Profit so far: " << profit << "€" << endl;
+    }
+}

@@ -13,9 +13,10 @@ void SealedBooster::printInfos()const
     cout << "      Set Name: " << setName << endl;
     cout << "      Language: " << language << endl;
     cout << "  Release Date: " << releaseDate << endl;
-    cout << "Purchase Price: " << purchasePrice << endl;
+    cout << "Purchase Price: " << purchasePrice << "€" << endl;
     cout << "     Quanitity: " << quanitity << endl;
     cout << "    Bonus Info: " << bonusInfo << endl;
+    calculateProfit();
 }
 
 //       ------------------ other sealed Booster associated functions ---------------------
