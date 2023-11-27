@@ -1,2 +1,4 @@
 string _name,  string _setName, string _language, string _releaseDate, double _purchasePrice, string _bonusInfo, 
-testBox, testboxname, eng, 01.01.1999,15.99,bonus tes info,
+TOPPS Star Wars Series 1 Box,star wars series 1,english,
+Evee Heroes Boosterox,s6a,japanese,01.01.2022,125.00,-,
+Kanto Power Kollection,XY Evolutions,english,02.11.2016,200.00,mewtu motive,

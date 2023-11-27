@@ -9,18 +9,18 @@ using namespace std;
 // member for printing infos
 void Card::printInfos()const
 {   
-    cout << "Name: " << name << endl;
+    cout << "          Name: " << name << endl;
     if(graded == true)
     {
-        cout << "Grade: " << grade << endl;
+        cout << "         Grade: " << grade << endl;
     }
-    cout << "Set Name: " << setName << endl;
-    cout << "Cardnumber: " << cardNumber << endl;
-    cout << "Language: " << language << endl;
-    cout << "Release Date: " << releaseDate << endl;
+    cout << "      Set Name: " << setName << endl;
+    cout << "    Cardnumber: " << cardNumber << endl;
+    cout << "      Language: " << language << endl;
+    cout << "  Release Date: " << releaseDate << endl;
     cout << "Purchase Price: " << purchasePrice << endl;
-    cout << "Artist: " << artist << endl;
-    cout << "Bonus Info: " << bonusInfo << endl;
+    cout << "        Artist: " << artist << endl;
+    cout << "    Bonus Info: " << bonusInfo << endl;
 }
 
 //       ------------------ other Card associated functions ---------------------

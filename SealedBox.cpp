@@ -9,12 +9,12 @@ using namespace std;
 // member for printing infos
 void SealedBox::printInfos()const
 {   
-    cout << "Name: " << name << endl;
-    cout << "Set Name: " << setName << endl;
-    cout << "Language: " << language << endl;
-    cout << "Release Date: " << releaseDate << endl;
+    cout << "          Name: " << name << endl;
+    cout << "      Set Name: " << setName << endl;
+    cout << "      Language: " << language << endl;
+    cout << "  Release Date: " << releaseDate << endl;
     cout << "Purchase Price: " << purchasePrice << endl;
-    cout << "Bonus Info: " << bonusInfo << endl;
+    cout << "    Bonus Info: " << bonusInfo << endl;
 }
 
 //       ------------------ other sealed Box associated functions ---------------------

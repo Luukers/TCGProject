@@ -44,8 +44,8 @@ void printList(const std::vector<T*>& vec)
     for (auto ptr : vec) 
     {
         cout << endl;
-        cout << "------------------------------" << endl;
-        cout << "    [" << i++ << "]" << endl;
+        cout << "--------------------------------------------------------" << endl;
+        cout << "              [" <<i++ << "]" << endl;
         ptr->printInfos();
         cout << endl;
     }
@@ -75,7 +75,7 @@ void ofstreamPrices(const vector <T*>& vec)
 template <typename T>
 void searchInList(vector <T*>& vec, string searchword)
 {
-    cout << "------------- Found Products: -------------" << endl;
+    cout << "-------------    Found Products:    -------------" << endl;
     for (size_t i = 0; i < vec.size(); i++)
     {
         int startpPos = 0;
@@ -87,8 +87,8 @@ void searchInList(vector <T*>& vec, string searchword)
         if(foundPos != string::npos)
         {   
         cout << endl;
-        cout << "------------------------------" << endl;
-        cout << "    [" << i+1 << "]" << endl;
+        cout << "--------------------------------------------------------" << endl;
+        cout << "              [" << i+1 << "]" << endl;0
         vec[i]->printInfos();
         cout << endl;
         }
