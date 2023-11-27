@@ -3,7 +3,7 @@
 #include "SealedBooster.h"
 #include "BoosterMenue.h"
 #include "SealedBox.h"
-#include "BoosterMenue.h"
+#include "BoxMenue.h"
 using namespace std;
 
 const string cardFilePath = "csv_files/products/Cards.csv";
@@ -53,7 +53,7 @@ int main()
 
         case SealedBoxes:
             // SealedProduct Menue
-
+            sealedBoxMenue(sealedBoxlist);
         break;  
         
         default:
