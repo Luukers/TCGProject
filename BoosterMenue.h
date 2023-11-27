@@ -5,7 +5,8 @@ using namespace std;
 
 enum SealedBoosterMenue
 {
-    PrintBoosterList = 1,
+    SearchBooster = 1,
+    PrintBoosterList,
     AddBooster,
     ShowPriceHistoryOfBooster,
     AddPriceToBooster
@@ -19,6 +20,7 @@ void sealedBoosterMenue(vector <SealedBooster*>& sealedBoosterlist)
     int userCaseInput;
     double price; 
     string date;
+    string userSearchword;
     do
     {   
         cout << endl;
@@ -28,6 +30,12 @@ void sealedBoosterMenue(vector <SealedBooster*>& sealedBoosterlist)
         userInput  = check_if_int();
         switch (userInput)
         {
+        case SearchBooster:
+            cout << "Type Boostername or Setname you want to Search for: " << endl;
+            getline(cin, userSearchword);
+            searchInList(sealedBoosterlist, userSearchword);
+            break;
+
         case PrintBoosterList:
             system("clear");
             printList(sealedBoosterlist);
@@ -81,8 +89,9 @@ void sealedBoosterMenue(vector <SealedBooster*>& sealedBoosterlist)
 void showBoosterMenueOptions()
 {
     cout << "[0] - Go back to Main Menue" << endl;
-    cout << "[1] - Show whole sealed Booster collection" << endl;
-    cout << "[2] - Add Booster to Collection" << endl;
-    cout << "[3] - Show Pricehistory from a single Booster" << endl;
-    cout << "[4] - Add current Price to Booster" << endl;
+    cout << "[1] - Search for Booster by Name" << endl;
+    cout << "[2] - Show whole sealed Booster collection" << endl;
+    cout << "[3] - Add Booster to Collection" << endl;
+    cout << "[4] - Show Pricehistory from a single Booster" << endl;
+    cout << "[5] - Add current Price to Booster" << endl;
 }

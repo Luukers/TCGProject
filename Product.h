@@ -34,20 +34,3 @@ class Product
 
     virtual ~Product(){}
 };
-
-
-
-
-/* 
-class sealedBooster: public Product
-{
-    
-};
-
-class sealedBox: public Product
-{
-
-};
-*/
-
-

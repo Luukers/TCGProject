@@ -4,7 +4,8 @@ using namespace std;
 
 enum CardMenue
 {
-    PrintCardList = 1,
+    SearchCard = 1,
+    PrintCardList,
     AddCard,
     ShowPriceHistoryOfCard,
     AddPriceToCard
@@ -18,6 +19,7 @@ void cardMenue(vector <Card*>& cardlist)
     int userCaseInput;
     double price; 
     string date;
+    string userSearchword;
     do
     {   
         cout << endl;
@@ -27,6 +29,12 @@ void cardMenue(vector <Card*>& cardlist)
         userInput  = check_if_int();
         switch (userInput)
         {
+        case SearchCard:
+            cout << "Type Cardname or Setname you want to Search for: " << endl;
+            getline(cin, userSearchword);
+            searchInList(cardlist, userSearchword);
+            break;
+
         case PrintCardList:
             system("clear");
             printList(cardlist);
@@ -80,8 +88,9 @@ void cardMenue(vector <Card*>& cardlist)
 void showCardMenueOptions()
 {
     cout << "[0] - Go back to Main Menue" << endl;
-    cout << "[1] - Show whole Card collection" << endl;
-    cout << "[2] - Add Card to Collection" << endl;
-    cout << "[3] - Show Pricehistory from a single Card" << endl;
-    cout << "[4] - Add current Price to Card" << endl;
+    cout << "[1] - Search for Card by Name" << endl;
+    cout << "[2] - Show whole Card collection" << endl;
+    cout << "[3] - Add Card to Collection" << endl;
+    cout << "[4] - Show Pricehistory from a single Card" << endl;
+    cout << "[5] - Add current Price to Card" << endl;
 }

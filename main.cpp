@@ -1,17 +1,20 @@
 #include "Card.h" 
 #include "CardMenue.h"
 #include "SealedBooster.h"
-#include "SealedBoosterMenue.h"
+#include "BoosterMenue.h"
+#include "SealedBox.h"
+#include "BoosterMenue.h"
 using namespace std;
 
 const string cardFilePath = "csv_files/products/Cards.csv";
 const string sealedBoosterFilePath = "csv_files/products/SealedBoosters.csv";
+const string sealedBoxFilePath = "csv_files/products/SealedBox.csv";
 
 enum Menue
 {
     Cards = 1,
     SealedBoosters,
-    SealedProducts,
+    SealedBoxes,
 };
 
 void showMainMenueOptions();
@@ -20,11 +23,14 @@ int main()
 {
     vector <Card*> cardlist;
     vector <SealedBooster*> sealedBoosterlist;
+    vector <SealedBox*> sealedBoxlist;
     system("clear");
     ifstreamCardlist(cardlist, cardFilePath);
     ifstreamPices(cardlist);
     ifstreamSealedBoosterlist(sealedBoosterlist, sealedBoosterFilePath);
     ifstreamPices(sealedBoosterlist);
+    ifstreamSealedBoxlist(sealedBoxlist, sealedBoxFilePath);
+    ifstreamPices(sealedBoxlist);
     int userInput;
     do
     {   
@@ -45,11 +51,10 @@ int main()
             sealedBoosterMenue(sealedBoosterlist);
         break;
 
-        case SealedProducts:
+        case SealedBoxes:
             // SealedProduct Menue
-            cout << "Not yet made. " << endl;
+
         break;  
-        
         
         default:
             if(userInput != 0)
@@ -67,6 +72,9 @@ int main()
     ofstreamPrices(sealedBoosterlist);
     ofstreamSealedBoosterList(sealedBoosterlist, sealedBoosterFilePath);
     deleteObjectsInVector(sealedBoosterlist);
+    ofstreamPrices(sealedBoxlist);
+    ofstreamSealedBoxList(sealedBoxlist, sealedBoxFilePath);
+    deleteObjectsInVector(sealedBoxlist);
     cout << "Programm succesfully executed." << endl;
     return 0;
 }

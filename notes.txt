@@ -2,13 +2,15 @@ CHECK!  subdirectory for prices for every product. example for file: productname
 CHECK!  prices get read at programm start and added to each produkts vec;
 CHECK!  write runtime changes of price member vecs into fitting csvs
         
-        class SealedBooster
-        class SealedProduct
+CHECK!  class SealedBooster
+CHECK!  class SealedProduct
 CHECK!  Function for printing whole collection type
         
 CHECK!  Workinng main Menue
 CHECK!  Working Card Menue
-        Working sealed Booster Menue
-        Working 
+CHECK!  Working sealed Booster Menue
+CHECK!  search Function in each submenue
+
+        
         
 

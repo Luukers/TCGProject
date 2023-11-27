@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <string>
 using namespace std;
 
 //        --------------- General Functions ---------------
@@ -30,6 +31,10 @@ void deleteObjectsInVector(std::vector<T*>& vec)
     vec.clear();
     cout << "Heap cleared " << endl;
 }
+
+
+// Following Template funktions with polymorphism because this 
+// projekt ist small enough to handle the risks
 
 // funktion to call all printInfos() from vector independently from type of object
 template <typename T>
@@ -63,5 +68,33 @@ void ofstreamPrices(const vector <T*>& vec)
     for(auto ptr: vec)
     {
         ptr->ofstreamPriceHistory();
+    }
+}
+
+// function for searching vectors for userinput string
+template <typename T>
+void searchInList(vector <T*>& vec, string searchword)
+{
+    cout << "------------- Found Products: -------------" << endl;
+    for (size_t i = 0; i < vec.size(); i++)
+    {
+        int startpPos = 0;
+        int foundPos = vec[i]->name.find(searchword, startpPos);
+        if(foundPos == -1)
+        {
+            foundPos = vec[i]->setName.find(searchword, startpPos);
+        }
+        if(foundPos != string::npos)
+        {   
+        cout << endl;
+        cout << "------------------------------" << endl;
+        cout << "    [" << i+1 << "]" << endl;
+        vec[i]->printInfos();
+        cout << endl;
+        }
+        else
+        {
+         // nothing happens if nothings found
+        }
     }
 }
