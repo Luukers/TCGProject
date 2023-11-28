@@ -9,7 +9,8 @@ enum SealedBoosterMenue
     PrintBoosterList,
     AddBooster,
     ShowPriceHistoryOfBooster,
-    AddPriceToBooster
+    AddPriceToBooster,
+    DeleteBooster
 };
 
 void showBoosterMenueOptions();
@@ -75,6 +76,14 @@ void sealedBoosterMenue(vector <SealedBooster*>& sealedBoosterlist)
             sealedBoosterlist[userCaseInput]->showPriceHistory();
             break;
 
+        case DeleteBooster:
+            cout << "Type number of the Card you want to delete: " << endl;
+            do{
+            userCaseInput = check_if_int() -1;
+            }while(userCaseInput < 0 || userCaseInput > sealedBoosterlist.size()-1);
+            deleteSingleObjectInVec(sealedBoosterlist, userCaseInput);
+            break;    
+
         default:
             if(userInput != 0)
             {
@@ -94,4 +103,5 @@ void showBoosterMenueOptions()
     cout << "[3] - Add Booster to Collection" << endl;
     cout << "[4] - Show Pricehistory from a single Booster" << endl;
     cout << "[5] - Add current Price to Booster" << endl;
+    cout << "[6] - Delete Booster from list" << endl;
 }

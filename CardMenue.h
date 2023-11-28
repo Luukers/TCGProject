@@ -8,7 +8,8 @@ enum CardMenue
     PrintCardList,
     AddCard,
     ShowPriceHistoryOfCard,
-    AddPriceToCard
+    AddPriceToCard,
+    DeleteCard
 };
 
 void showCardMenueOptions();
@@ -53,7 +54,6 @@ void cardMenue(vector <Card*>& cardlist)
             userCaseInput = check_if_int() -1;
             }while(userCaseInput < 0 || userCaseInput > cardlist.size()-1);
             cardlist[userCaseInput]->showPriceHistory();
-            
             break;
 
         case AddPriceToCard:
@@ -72,6 +72,14 @@ void cardMenue(vector <Card*>& cardlist)
             cardlist[userCaseInput]->addCurrentPrice(price, date);
             cout << "Current Price added. Cards Pricehistory: " << endl;
             cardlist[userCaseInput]->showPriceHistory();
+            break;
+        
+        case DeleteCard:
+            cout << "Type number of the Card you want to delete: " << endl;
+            do{
+            userCaseInput = check_if_int() -1;
+            }while(userCaseInput < 0 || userCaseInput > cardlist.size()-1);
+            deleteSingleObjectInVec(cardlist, userCaseInput);
             break;
 
         default:
@@ -93,4 +101,5 @@ void showCardMenueOptions()
     cout << "[3] - Add Card to Collection" << endl;
     cout << "[4] - Show Pricehistory from a single Card" << endl;
     cout << "[5] - Add current Price to Card" << endl;
+    cout << "[6] - Delete Card from List" << endl;
 }

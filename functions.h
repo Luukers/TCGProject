@@ -98,3 +98,12 @@ void searchInList(vector <T*>& vec, string searchword)
         }
     }
 }
+
+// function for deleting single object in vec
+template <typename T> 
+void deleteSingleObjectInVec( vector <T*>& vec, int index)
+{
+    delete vec[index];
+    vec.erase(vec.begin()+index);
+    cout << "Number " << index+1 << " deleted from list" << endl;
+}

@@ -13,9 +13,15 @@ void SealedBooster::printInfos()const
     cout << "      Set Name: " << setName << endl;
     cout << "      Language: " << language << endl;
     cout << "  Release Date: " << releaseDate << endl;
+    if(purchasePrice != 0)
+    {
     cout << "Purchase Price: " << purchasePrice << "€" << endl;
+    }
     cout << "     Quanitity: " << quanitity << endl;
+    if(!bonusInfo.empty())
+    {
     cout << "    Bonus Info: " << bonusInfo << endl;
+    }
     calculateProfit();
 }
 

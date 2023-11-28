@@ -79,14 +79,14 @@ void Product::ofstreamPriceHistory()
 {
     string filepath = "csv_files/prices/" + name + "_" + setName + ".csv";
     ofstream file(filepath);
-        string content;
-        for (size_t i = 0; i < priceHistory.size(); i++)
-        {
-            content += dateForPricehistory[i] + ", " + to_string_with_precision(priceHistory[i]) + "," +"\n";
-        }
-        file << "Date, Price,\n";
-        file << content; 
-        cout << filepath << " Pricehistory was renewed" << endl;
+    string content;
+    for (size_t i = 0; i < priceHistory.size(); i++)
+    {
+        content += dateForPricehistory[i] + ", " + to_string_with_precision(priceHistory[i]) + "," +"\n";
+    }
+    file << "Date, Price,\n";
+    file << content; 
+    cout << filepath << " Pricehistory was renewed" << endl;
 }
 
 // calculate profit from product by purchaseprice difference to latest price
@@ -96,6 +96,7 @@ void Product::calculateProfit() const
     {
     cout << "  Latest price: "<< priceHistory[priceHistory.size()-1] << "€" << endl;
     double profit = priceHistory[priceHistory.size()-1] - purchasePrice;
-    cout << " Profit so far: " << profit << "€" << endl;
+    double inPercent = ((priceHistory[priceHistory.size()-1] - purchasePrice) / purchasePrice) * 100;
+    cout << " Profit so far: +" << profit << "€" << " (+" << to_string_with_precision(inPercent) << "%)" << endl;
     }
 }

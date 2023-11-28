@@ -9,7 +9,8 @@ enum SealedBoxMenue
     PrintBoxList,
     AddBox,
     ShowPriceHistoryOfBox,
-    AddPriceToBox
+    AddPriceToBox,
+    DeleteBox,
 };
 
 void showBoxMenueOptions();
@@ -75,6 +76,14 @@ void sealedBoxMenue(vector <SealedBox*>& sealedBoxlist)
             sealedBoxlist[userCaseInput]->showPriceHistory();
             break;
 
+        case DeleteBox:
+            cout << "Type number of the Card you want to delete: " << endl;
+            do{
+            userCaseInput = check_if_int() -1;
+            }while(userCaseInput < 0 || userCaseInput > sealedBoxlist.size()-1);
+            deleteSingleObjectInVec(sealedBoxlist, userCaseInput);
+            break;            
+
         default:
             if(userInput != 0)
             {
@@ -94,4 +103,5 @@ void showBoxMenueOptions()
     cout << "[3] - Add Box to Collection" << endl;
     cout << "[4] - Show Pricehistory from a single Box" << endl;
     cout << "[5] - Add current Price to Box" << endl;
+    cout << "[6] - Delete Box from List" << endl;
 }
